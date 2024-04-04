@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning Platform - Courses</title>
+    <link rel="stylesheet" href="styleCourses.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="online learning.avif" alt="OnlinEd">
+        </div>
+        <h1>Online Learning Platform</h1>
+        <nav>
+            <ul>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="tests.html">Tests</a></li>
+                <li><a href="progress.html">Progress</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="explore">
+            <h2>Explore Courses</h2>
+            <button id="addCourseBtn">+</button>
+        </section>
+        <section id="courseList">
+            <!-- Course tiles will be added dynamically here -->
+        </section>
+    </main>
+
+    <!-- Modal for adding a new course -->
+    <div id="addCourseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Course</h2>
+            <form id="addCourseForm">
+                <label for="courseName">Course Name:</label>
+                <input type="text" id="courseName" required>
+
+                <label for="courseDescription">Description:</label>
+                <textarea id="courseDescription" name="courseDescription" rows="4" required></textarea>
+    
+                <button type="submit">Add Course</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Online Learning Platform</p>
+    </footer>
+    <script src="teacher_courses.js"></script>
+</body>
+</html>

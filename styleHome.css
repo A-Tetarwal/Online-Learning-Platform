@@ -1,0 +1,109 @@
+html{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+        /* CSS styles can be added here */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        img{
+            height: 190px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            background-color: rgb(50, 165, 50);
+            color: #fff;
+            text-decoration: none;
+            margin: 4px;
+            padding: 4px;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: rgb(255, 255, 255);
+            color: #000000;
+        }
+        main {
+            padding: 20px;
+        }
+
+        main #explore{
+            text-align: center;
+        }
+
+        ul {
+            margin-left: 285px;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .course {
+            width: 500px;
+            margin-bottom: 20px;
+            padding: 20px;
+            color: black;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        h3 {
+            margin-top: 0;
+        }
+        
+        p {
+            margin-bottom: 10px;
+        }
+        
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #333333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #555555;
+        }
+
+        main pre{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        strong a{
+            text-decoration: underline;
+            color: rgb(50, 165, 50);
+        }
