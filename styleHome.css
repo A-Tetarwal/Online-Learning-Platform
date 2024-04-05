@@ -9,7 +9,7 @@ html{
             background-color: #f0f0f0;
         }
         header {
-            background-color: #333333;
+            background-color: #333;
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -44,12 +44,12 @@ html{
             padding: 20px;
         }
 
-        main #explore{
-            text-align: center;
-        }
-
         ul {
-            margin-left: 285px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+            margin-left: none;
             list-style: none;
             padding: 0;
         }
@@ -101,6 +101,10 @@ html{
             position: relative;
             bottom: 0;
             width: 100%;
+        }
+        footer a{
+            color: white;
+            text-decoration: none;
         }
 
         strong a{

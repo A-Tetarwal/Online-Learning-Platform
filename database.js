@@ -1,10 +1,10 @@
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-    host: 'mysql-project.mysql.database.azure.com',
-    user: 'a_tetarwal',
+    host: 'localhost',
+    user: 'root',
     password: 'Qbeta@123',
-    database: 'onlineed' 
+    database: 'Students' 
 });
 
 connection.connect((err) => {
@@ -15,7 +15,7 @@ connection.connect((err) => {
     console.log('Connected to MySQL database');
 
     // Execute a simple SELECT query
-    connection.query('SELECT * FROM users', (err, results) => {
+    connection.query('Create Table lol (id int);', (err, results) => {
         if (err) {
             console.error('Error executing query:', err);
             return;
@@ -23,12 +23,4 @@ connection.connect((err) => {
         console.log('Query results:', results);
     });
 
-    // Don't forget to close the connection when done
-    connection.end((err) => {
-        if (err) {
-            console.error('Error ending connection:', err);
-            return;
-        }
-        console.log('Connection closed');
-    });
 });

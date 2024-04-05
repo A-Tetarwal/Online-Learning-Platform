@@ -3,45 +3,38 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
 
     // Retrieve courses from local storage
-    let courses = JSON.parse(localStorage.getItem('courses')) || [];
+    let teacherCourses = JSON.parse(localStorage.getItem('teacherCourses')) || [];
 
-    // Display courses on the page
-    function displayCourses() {
+    // Display teacher's courses on the page
+    function displayTeacherCourses() {
         courseList.innerHTML = '';
-        courses.forEach(course => {
+        teacherCourses.forEach(course => {
             const courseElement = document.createElement('div');
             courseElement.classList.add('course');
             courseElement.innerHTML = `
                 <h3>${course.name}</h3>
                 <p>${course.description}</p>
                 <button class="enrollBtn">Enroll</button>
-                <button class="deleteBtn">Delete</button>
             `;
             courseList.appendChild(courseElement);
         });
     }
 
-    displayCourses();
+    displayTeacherCourses();
 
-    // Handle dynamic enroll and delete buttons
+    // Handle dynamic enroll buttons
     courseList.addEventListener('click', function(event) {
         const target = event.target;
         if (target.classList.contains('enrollBtn')) {
             // Enroll logic
             alert('Enrolling in course...');
-        } else if (target.classList.contains('deleteBtn')) {
-            // Delete course logic
-            const courseIndex = Array.from(courseList.children).indexOf(target.parentElement);
-            courses.splice(courseIndex, 1);
-            localStorage.setItem('courses', JSON.stringify(courses));
-            displayCourses();
         }
     });
 
     // Search functionality
     searchInput.addEventListener('input', function() {
         const searchTerm = searchInput.value.toLowerCase();
-        const filteredCourses = courses.filter(course => course.name.toLowerCase().includes(searchTerm) || course.description.toLowerCase().includes(searchTerm));
+        const filteredCourses = teacherCourses.filter(course => course.name.toLowerCase().includes(searchTerm) || course.description.toLowerCase().includes(searchTerm));
         courseList.innerHTML = '';
         filteredCourses.forEach(course => {
             const courseElement = document.createElement('div');
@@ -50,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h3>${course.name}</h3>
                 <p>${course.description}</p>
                 <button class="enrollBtn">Enroll</button>
-                <button class="deleteBtn">Delete</button>
             `;
             courseList.appendChild(courseElement);
         });
