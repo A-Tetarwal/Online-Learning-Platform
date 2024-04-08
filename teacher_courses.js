@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <h3>${course.name}</h3>
             <p>${course.description}</p>
             <button class="openBtn">Open</button>
+            <button class="addRBtn">Add Resource</button>
             <button class="deleteBtn">Delete</button>
             <span class="enrolled">Enrolled students: 0</span>
         `;
@@ -67,12 +68,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle dynamic course buttons
     courseList.addEventListener('click', function(event) {
         const target = event.target;
-        if (target.classList.contains('openBtn')) {
-            // Open course logic
-            alert('Opening course...');
+
+        if (target.classList.contains('addRBtn')) {
+            // Add resource logic
+            alert('Opening...');
             const courseName = target.parentElement.querySelector('h3').textContent;
             window.location.href = `add_resources.html?course=${encodeURIComponent(courseName)}`;
-            
+        }
+        else if (target.classList.contains('openBtn')) {
+            // Open course logic
+            const courseName = target.parentElement.querySelector('h3').textContent;
+            const resources = JSON.parse(localStorage.getItem('resources')) || [];
+            const courseResources = resources.filter(resource => resource.course === courseName);
+            if (courseResources.length > 0) {
+                // Redirect to a page to display resources
+                window.location.href = `course_resources.html?course=${encodeURIComponent(courseName)}`;
+            } else {
+                alert('No resources found for this course.');
+            }
         } else if (target.classList.contains('deleteBtn')) {
             // Delete course logic
             const courseElement = target.parentElement;

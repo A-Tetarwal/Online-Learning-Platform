@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Resources</title>
+    <link rel="stylesheet" href="styleAddResources.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="online learning.avif" alt="">
+        </div>
+        <h1>Add Resources</h1>
+    </header>
+    <main>
+        <section id="addResources">
+            <h2>Resources</h2>
+            <form id="addResourcesForm">
+                <label for="resourceName">Resource Name:</label>
+                <input type="text" id="resourceName" name="resourceName" required>
+
+                <label for="resourceType">Select Resource Type:</label>
+                <select id="resourceType" name="resourceType">
+                    <option value="test">Test</option>
+                    <option value="assignment">Assignment</option>
+                    <!-- Add more options for different resource types -->
+                </select>
+
+                <label for="courseDescription">Description:</label>
+                <textarea id="courseDescription" name="courseDescription" rows="4" required></textarea>
+
+
+                <!-- Additional input fields based on selected resource type -->
+                <div id="additionalFields">
+                    <!-- Fields will be dynamically added here based on resource type -->
+                </div>
+
+                <!-- File input field for uploading documents -->
+                <label for="fileInput">Upload File:</label>
+                <input type="file" id="fileInput" name="fileInput">
+    
+                <button type="submit">Add</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Online Learning Platform</p>
+    </footer>
+    <script src="add_resources.js"></script>
+</body>
+</html>

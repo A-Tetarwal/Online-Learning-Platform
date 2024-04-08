@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Styles for header */
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+header img {
+    width: 100px;
+    height: auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Styles for main section */
+main {
+    padding: 20px;
+}
+
+#courseResources {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+/* Styles for resource list */
+#resourceList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.resourceItem {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.resourceItem h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.resourceItem p {
+    margin: 0;
+}
+
+/* Styles for footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
