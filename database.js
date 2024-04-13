@@ -1,10 +1,26 @@
+const fs = require('fs');
+const express = require('express');
 const mysql = require('mysql2');
+const bodyParser = require('body-parser');
+
+const app = express();
+const port = 3000;
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+const sslOptions = {
+    ca: fs.readFileSync('path/to/ca.crt'), // Path to CA certificate
+    cert: fs.readFileSync('path/to/client.crt'), // Path to client certificate
+    key: fs.readFileSync('path/to/client.key'), // Path to client private key
+};
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
+    host: 'mysql-project.mysql.database.azure.com',
+    user: 'a_tetarwal',
     password: 'Qbeta@123',
-    database: 'Students' 
+    database: 'onlineEd',
+    ssl: sslOptions
 });
 
 connection.connect((err) => {
@@ -13,14 +29,29 @@ connection.connect((err) => {
         return;
     }
     console.log('Connected to MySQL database');
+});
 
-    // Execute a simple SELECT query
-    connection.query('Create Table lol (id int);', (err, results) => {
+
+app.post('/register', (req, res) => {
+    const { username, email, password, confirm_password, user_type } = req.body;
+
+    // Check if passwords match
+    if (password !== confirm_password) {
+        return res.status(400).json({ error: 'Passwords do not match' });
+    }
+
+    // Insert data into MySQL database
+    const sql = 'INSERT INTO users (username, email, password, user_type) VALUES (?, ?, ?, ?)';
+    connection.query(sql, [username, email, password, user_type], (err, result) => {
         if (err) {
-            console.error('Error executing query:', err);
-            return;
+            console.error('Error inserting data into database:', err);
+            return res.status(500).json({ error: 'Failed to register user' });
         }
-        console.log('Query results:', results);
+        console.log('User registered successfully');
+        res.status(200).json({ message: 'User registered successfully' });
     });
+});
 
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
 });
